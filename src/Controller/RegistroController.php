@@ -18,15 +18,15 @@ class RegistroController extends AbstractController
     public function index(Request $request,UserPasswordEncoderInterface $passwordEncoder)
     {
         $user = new User();
+        //Usuario - ROLE_USER por defecto
         $form = $this->createForm(UserType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $em =$this->getDoctrine()->getManager();
-            $user->setRoles(['ROLE_USER']);
             $user->setPassword($passwordEncoder->encodePassword($user,$form['password']->getData()));
             $em->persist($user);
             $em->flush();
-            $this->addFlash("success","Registrado con éxito");
+            $this->addFlash("success",User::REGISTRO_SUCCESS);
             return $this->redirectToRoute("registro");
         }
         return $this->render('registro/index.html.twig', [
