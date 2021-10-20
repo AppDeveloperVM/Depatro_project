@@ -12,6 +12,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
+    const REGISTRO_SUCCESS = "Registrado con éxito.";
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -39,6 +41,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string")
      */
     private $nombre;
+
+    /** 
+     * User constructor
+    */
+    public function __construct()
+    {
+        $this->roles = ['ROLE_USER'];
+    }
 
     public function getId(): ?int
     {
