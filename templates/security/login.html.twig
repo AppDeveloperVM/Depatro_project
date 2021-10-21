@@ -21,7 +21,8 @@
     {% else %}  
     <div class="row">
         <div class="container col-xl-4 col-lg-6 col-md-8 offset-xl-4 offset-md-2 offset-lg-3">
-            
+
+        <div id="login_info"></div>
             
             <h1 class="h3 mb-3 font-weight-normal">Login</h1>    
             <form method="post" id="login_form">
@@ -69,5 +70,6 @@
 {{ parent() }}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/ajax-call.js') }}"></script>
 {% endblock %}
