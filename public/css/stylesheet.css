@@ -30,13 +30,23 @@ h1,h2,h3,h4,h5,h6{
     margin: 10px;
 }
 
-.form-container{
+.container{
     margin-top:100px;
     font-family: Varela;
     font-size: 17px !important;
     background-color: rgb(241, 241, 241);;
     border:5px solid rgba(0, 132, 255, 0.76);
     border-radius:6px;
+}
+
+.logged_as {
+    font-size: 29px;
+    font-weight: bold;
+    color: rgb(100, 95, 95);
+}
+
+.user_name {
+
 }
 
 /*
