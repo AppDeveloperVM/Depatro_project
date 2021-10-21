@@ -9,12 +9,18 @@
     {% endif %}
 
     {% if app.user %}
+    <div class="container col-xl-4 col-lg-6 col-md-8 offset-xl-4 offset-md-2 offset-lg-3">
         <div class="mb-3">
-            <h3><b>You are logged in</b> as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a></h3>
+            
+                <div class="logged_as"><b>You are logged in</b> as :</div>
+                <div class="user_name">{{ app.user.username }}</div> 
+                <a class="btn btn-primary" href="{{ path('app_logout') }}">Logout</a>
+            
         </div>
+    </div>
     {% else %}  
     <div class="row">
-        <div class="form-container col-xl-4 col-lg-6 col-md-8 offset-xl-4 offset-md-2 offset-lg-3">
+        <div class="container col-xl-4 col-lg-6 col-md-8 offset-xl-4 offset-md-2 offset-lg-3">
             
             
             <h1 class="h3 mb-3 font-weight-normal">Login</h1>    
