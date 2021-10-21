@@ -20,7 +20,7 @@ function Login(email,passwd){
             //success example, modify template info
             //$('..').append(e); $('#..').html('');
 
-            //$('#login_info').html(data);  // data.username , data.passwd               
+            $('#login_info').html(data);  // data.username , data.passwd               
             alert('Ajax login request!');
          },  
          error : function(xhr, textStatus, errorThrown) {  
