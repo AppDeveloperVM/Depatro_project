@@ -1,19 +1,47 @@
+
 @font-face {
-    
+    font-family: 'Yanone';
+    src: url("../fonts/YanoneKaffeesatz-VariableFont_wght.ttf");
 }
 
+@font-face {
+    font-family: 'Varela';
+    src: url("../fonts/VarelaRound-Regular.ttf");
+}
 
 body {
-    background-image: url("../img/UI.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background-image: url("../img/bush.png");
+    background-repeat: repeat;
+    background-size: 350px;
     background-attachment: fixed;
-    font-family: signikaregular;
+    font-family: Yanone;
+    font-size:1rem;
 }
 
 h1,h2,h3,h4,h5,h6{
-    font-family: signikabold;
-    color: #f65c78;
+    color: #5cb1f6;
 }
 
+.navbar-brand {
+    font-size: 30px !important;
+}
 
+.row{
+    margin: 10px;
+}
+
+.form-container{
+    margin-top:100px;
+    font-family: Varela;
+    font-size: 17px !important;
+    background-color: rgb(241, 241, 241);;
+    border:5px solid rgba(0, 132, 255, 0.76);
+    border-radius:6px;
+}
+
+/*
+Bootstrap breakpoints
+*/
+@media (min-width: 544px) {  
+    body {font-size:2rem !important;}
+}
