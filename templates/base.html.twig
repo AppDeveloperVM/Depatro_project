@@ -8,7 +8,10 @@
             <link rel="stylesheet" href="{{asset('css/stylesheet.css')}}">
         {% endblock %}
 
-        {% block javascripts %}
+        {% block javascripts %}     
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('js/all.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         {% endblock %}
     </head>
     <body>
@@ -18,3 +21,4 @@
         {% block body %}{% endblock %}
     </body>
 </html>
+
