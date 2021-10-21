@@ -37,8 +37,8 @@
             </div>
         #}
 
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
+        <button class="btn btn-lg btn-primary" type="submit" onclick="Login()">
+            Login
         </button>
     </form>
 
@@ -47,4 +47,11 @@
     {% endif %}
 
     
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('js/ajax-call.js') }}"></script>
 {% endblock %}
