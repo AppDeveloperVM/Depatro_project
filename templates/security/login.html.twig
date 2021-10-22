@@ -48,7 +48,7 @@
                     </div>
                 #}
 
-                <button class="btn btn-primary" type="button" onclick="Login()">
+                <button class="btn btn-primary" type="button" onclick="Login()"><!--onclick="Login()"-->
                     Login
                 </button>
             </form>
@@ -71,7 +71,6 @@
 {{ parent() }}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-    <script src="{{ asset('js/serializejson.js') }}"></script>
     <script src="{{ asset('js/ajax-call.js') }}"></script>
     
 
