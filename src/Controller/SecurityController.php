@@ -53,15 +53,17 @@ class SecurityController extends AbstractController
             $password = $request->request->get('password');
 
             //$encoderService = $this->container->get('security.password_encoder');
-            $user->setPassword($encoderService->encodePassword($user,$password));
-            
+    
 
             $em = $this->getDoctrine()->getManager(); 
             $user_db = $em->getRepository(User::class)->findOneBySomeField($email);
 
-            $is_pass_valid = $encoderService->isPasswordValid( $user, $password );
+            $encoded_pass = $encoderService->encodePassword($user,$password);
+            $user->setPassword($encoded_pass);
+
+            $is_pass_valid = $encoderService->isPasswordValid( $user_db, $password );
           
-            if($user_db != null && $is_pass_valid != false){
+            if($user_db != null && $is_pass_valid == true){
 
                 $session = $request->getSession();
                 $session->set('user', $user);
@@ -71,7 +73,7 @@ class SecurityController extends AbstractController
                 $firewallName = 'main';
                 //$auth = new $post_auth($user,$firewallName,$user_db->getRoles()); // trying to create token for session
 
-                $response = new JsonResponse(['user' => $user_db->getNombre(),'status' => 'success'] );
+                $response = new JsonResponse(['user' => $user_db->getNombre(),'password' => $encoded_pass,'status' => 'success'] );
                
                return $response;
                
