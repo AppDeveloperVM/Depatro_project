@@ -20,11 +20,11 @@ function Login(){
          success: function(data) { 
             if(data.status == "success"){
                //hide form fields
-               $("#form-container").hide();
+               //$("#form-container").hide();
                //show logged user
-               $('#login_info').html("Loggeado como <b>" + data.user + "</b>");  // data.username , data.passwd               
+               $('#login_info').html("<div class='success'>Usuario correcto</div>");  // data.username , data.passwd               
             }else{
-               $('#login_info').html("<div class='error'>Datos incorrectos</div>");
+               $('#login_info').html("<div class='error'>Usuario incorrecto</div>");
             }
             
          },  
