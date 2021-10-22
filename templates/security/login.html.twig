@@ -22,9 +22,11 @@
     <div class="row">
         <div class="container col-xl-4 col-lg-6 col-md-8 offset-xl-4 offset-md-2 offset-lg-3">
 
-        <div id="login_info"></div>
+            <h1 class="h3 mb-3 font-weight-normal">Login</h1> 
+
+            <div id="login_info"></div>
             
-            <h1 class="h3 mb-3 font-weight-normal">Login</h1>    
+            <div id="form-container">
             <form method="post" id="login_form">
                 <label for="inputEmail">Email</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
@@ -46,17 +48,16 @@
                     </div>
                 #}
 
-                <button class="btn btn-primary" type="submit">
-                    Login
-                </button>
                 <button class="btn btn-primary" type="button" onclick="Login()">
-                Login ajax test
+                    Login
                 </button>
             </form>
 
+            </div>
+            Acceso al <a href="/registro">Registro</a>
             
 
-            O dirijase al <a href="/registro">Registro</a>
+        </div>
             
         </div>
     </div>
@@ -70,5 +71,31 @@
 {{ parent() }}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('js/serializejson.js') }}"></script>
     <script src="{{ asset('js/ajax-call.js') }}"></script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
+    
+    <script>
+        function LoginAPI(){
+
+            axios
+                .post('/login', {
+                    email: $("#inputEmail").value(),
+                    password: $("#inputPassword").value()
+                })
+                .then(response => {
+                    console.log(response.data);
+                    //this.$emit('user-authenticated', userUri);
+                    //this.email = '';
+                    //this.password = '';
+                }).catch(error => {
+                    console.log(error.response.data);
+                }).finally(() => {
+                    this.isLoading = false;
+                })
+        }
+    </script>
+
 {% endblock %}
