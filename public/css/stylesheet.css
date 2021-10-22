@@ -37,6 +37,7 @@ h1,h2,h3,h4,h5,h6{
     background-color: rgb(241, 241, 241);;
     border:5px solid rgba(0, 132, 255, 0.76);
     border-radius:6px;
+    height: 320px;
 }
 
 .logged_as {
@@ -45,12 +46,13 @@ h1,h2,h3,h4,h5,h6{
     color: rgb(100, 95, 95);
 }
 
-.user_name {
-
-}
 
 .error {
     color:red;
+}
+
+.success {
+    color:rgb(16, 172, 29);
 }
 
 /*
